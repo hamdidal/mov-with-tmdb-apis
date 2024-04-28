@@ -1,0 +1,41 @@
+.select-genre {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    width: 40%;
+    align-items: center;
+}
+
+.first-movie {
+    width: 100%;
+    height: 500px;
+    padding: 50px;
+    display: block;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.first-movie-detail {
+    background: transparent !important;
+    position: relative;
+    top: 40%
+}
+
+.movies-row{
+    padding: 3rem;
+}
+
+
+@media screen and (max-width: 768px) {
+    .select-genre {
+        width: 100%;
+    }
+
+    .first-movie {
+        background-repeat: round;
+    }
+}
