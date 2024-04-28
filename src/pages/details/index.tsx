@@ -109,7 +109,7 @@ const MovieDetails = () => {
             </Typography.Title>
             <Flex gap="middle" align="center">
               <Rate
-                defaultValue={details && (details?.vote_average / 2 ?? 0)}
+                defaultValue={details && (details?.vote_average / 2 || 0)}
                 onChange={(value) => setValue(value * 2)}
                 character={({ index = 0 }) => customIcons[index ?? 0]}
               />
