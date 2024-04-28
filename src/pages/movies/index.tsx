@@ -12,6 +12,7 @@ import { convertDate, GenreList } from "../../helpers";
 import { useNavigate } from "react-router-dom";
 import "../dashboard/Dashboard.css";
 import "./Movies.css";
+import Spinner from "../../components/Spinner";
 
 const MovieList = () => {
   const [movies, setMovies] = useState<MovieModel[] | []>([]);
@@ -89,7 +90,7 @@ const MovieList = () => {
           fetchData(selectedGenre, page + 1);
         }}
         hasMore={true}
-        loader={true}
+        loader={<Spinner/>}
         className="dashboard-cards"
       >
         <Row className="movies-row" gutter={[32, 16]}>

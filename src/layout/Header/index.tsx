@@ -346,11 +346,12 @@ const Header = () => {
             hasMore={true}
             loader={
               <Button
+                
                 type="text"
                 style={{ width: "100%" }}
                 onClick={() => setPage(page + 1)}
               >
-                View More
+                <Typography.Title level={4}>Load more</Typography.Title>
               </Button>
             }
           >

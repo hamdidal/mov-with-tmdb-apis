@@ -77,6 +77,7 @@ const MovieDetails = () => {
         <div
           className="movie-detail-container"
           style={{
+            width: "100%",
             backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0), #828276), url(https://image.tmdb.org/t/p/w1280${details?.backdrop_path})`,
           }}
         >

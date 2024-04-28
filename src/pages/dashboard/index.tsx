@@ -13,17 +13,14 @@ import "./Dashboard.css";
 const Dashboard = () => {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState<MovieModel[] | []>([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const getPopular = async () => {
-    setIsLoading(true);
     const data = await getPopularMovies(page);
     if (page === 1) {
       setMovies(data.results);
     } else setMovies([...movies, ...data.results]);
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -32,13 +29,14 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Header />(
+      <Header />
       <>
         <Row gutter={[32, 16]}>
           <div
             onClick={() => navigate(`/details/${movies[0].id}`)}
             className="first-movie"
             style={{
+              width: "100%",
               backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0), #828276), url(https://image.tmdb.org/t/p/w1280${
                 movies![0]?.backdrop_path
               })`,
