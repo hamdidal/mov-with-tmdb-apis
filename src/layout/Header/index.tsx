@@ -48,7 +48,6 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [deleteLoading, setDeleteLoading] = useState(false);
   const reqToken = localStorage.getItem("reqToken");
   const approvedToken = new URLSearchParams(window.location.search).get(
     "approved"
@@ -85,7 +84,6 @@ const Header = () => {
   };
 
   const deleteSession = async () => {
-    setDeleteLoading(true);
     await endSession(sessiınId!).then(
       (res) =>
         res?.status === 200 &&
@@ -99,7 +97,6 @@ const Header = () => {
           theme: "light",
         })
     );
-    setDeleteLoading(false);
     return localStorage.removeItem("sessionId");
   };
 

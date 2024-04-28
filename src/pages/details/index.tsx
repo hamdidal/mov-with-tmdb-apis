@@ -20,7 +20,7 @@ import "./Details.css";
 import Spinner from "../../components/Spinner";
 import CardComponent from "../../components/Card";
 import { ThemeContext } from "../../context";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const MovieDetails = () => {
   const [details, setDetails] = useState<MovieDetailModel | undefined>(
@@ -28,7 +28,6 @@ const MovieDetails = () => {
   );
   const [credits, setCredits] = useState<CreditModel | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(false);
-  const [rateLoading, setRateLoading] = useState(false);
   const [value, setValue] = useState(0);
   const { id } = useParams();
   const { theme } = useContext(ThemeContext);
@@ -49,7 +48,6 @@ const MovieDetails = () => {
   };
 
   const rateTheMovie = async () => {
-    setRateLoading(true);
     await rateMovie(Number(id), value, sessionId!).then(
       (res) =>
         res?.status === 201 &&
@@ -64,7 +62,6 @@ const MovieDetails = () => {
         })
     );
 
-    setRateLoading(false);
   };
 
   useEffect(() => {
