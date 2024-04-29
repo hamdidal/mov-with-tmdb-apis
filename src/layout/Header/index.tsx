@@ -122,7 +122,7 @@ const Header = () => {
   };
 
   const handleOpenTMDbAuth = () => {
-    const url = `https://www.themoviedb.org/authenticate/${reqToken}?redirect_to=http://localhost:5173`;
+    const url = `https://www.themoviedb.org/authenticate/${reqToken}?redirect_to=https://brilliant-licorice-e50540.netlify.app`;
     window.open(url, "_self");
   };
 
