@@ -122,7 +122,7 @@ const Header = () => {
   };
 
   const handleOpenTMDbAuth = () => {
-    const url = `https://www.themoviedb.org/authenticate/${reqToken}?redirect_to=https://brilliant-licorice-e50540.netlify.app`;
+    const url = `https://www.themoviedb.org/authenticate/${reqToken}?redirect_to=http://localhost:5173`;
     window.open(url, "_self");
   };
 
@@ -316,7 +316,17 @@ const Header = () => {
           <Typography.Title onClick={() => navigate("/movies")} level={1}>
             Movies
           </Typography.Title>
-          <Typography.Title level={1}>Login</Typography.Title>
+          <Typography.Title level={1}>
+            {reqToken ? (
+              <Typography.Title onClick={showDeleteModal} level={1}>
+                Log out{" "}
+              </Typography.Title>
+            ) : (
+              <Typography.Title onClick={showModal} level={1}>
+                Log in{" "}
+              </Typography.Title>
+            )}
+          </Typography.Title>
           <Switch
             className={`${theme === "light" ? "light-switch" : "dark-switch"}`}
             style={{
@@ -346,7 +356,6 @@ const Header = () => {
             hasMore={true}
             loader={
               <Button
-                
                 type="text"
                 style={{ width: "100%" }}
                 onClick={() => setPage(page + 1)}
